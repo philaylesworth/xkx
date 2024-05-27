@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random Round</title>
+    <style>
+      html {
+        width: 100%;
+      }
+      body {
+        margin: 5px 0;
+        font: 1.5em sans-serif;
+        margin: 10px;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      td {
+        border: 1px solid black;
+        text-align: center;
+        padding: 4px;
+      }
+      button {
+        font: 1em sans-serif;
+      }
+      button:first-of-type {
+        float: right;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <tbody></tbody>
+    </table>
+    <p>
+      <button id="shuffle">Shuffle</button>
+      <button id="plus">&nbsp;+&nbsp;</button>
+      <button id="minus">&nbsp;-&nbsp;</button>
+    </p>
+  </body>
+  <script>
+    let table = document.querySelector('tbody');
+    let clear = document.querySelector('button#clear');
+    let shuffleButton = document.querySelector('button#shuffle');
+    let plusButton = document.querySelector('button#plus');
+    let minusButton = document.querySelector('button#minus');
+    function shuffle() {
+      let cells = document.querySelectorAll('tbody tr');
+      let order = [];
+      for (let n = 0; n < cells.length; n++) {
+        order.push(n);
+      }
+      order.sort(function () {
+        return 0.5 - Math.random();
+      });
+      for (let n of order) {
+        table.appendChild(cells[n]);
+      }
+    }
+    function save() {
+      let names = [];
+      let cells = document.querySelectorAll('tbody tr');
+      for (let cell of cells) {
+        names.push(cell.textContent.trim());
+      }
+      localStorage.setItem('listofnames', JSON.stringify(names));
+    }
+    function plus() {
+      let row = document.createElement('tr');
+      row.innerHTML = `<td contenteditable="true"></td>`;
+      table.appendChild(row);
+    }
+    function minus(e) {
+      if (e.target.tagName === 'TD') {
+        e.target.parentElement.remove();
+      } else {
+        let last = table.lastElementChild;
+        last.remove();
+      }
+      save();
+    }
+    shuffleButton.addEventListener('click', shuffle);
+    plusButton.addEventListener('click', plus);
+    minusButton.addEventListener('click', minus);
+    window.addEventListener('keydown', e => {
+      switch (e.key) {
+        case '+':
+        case '=':
+          e.preventDefault();
+          e.stopImmediatePropagation();
+          plus();
+          break;
+        case '-':
+          e.preventDefault();
+          e.stopImmediatePropagation();
+          minus(e);
+          break;
+        case 'Enter':
+          e.preventDefault();
+          e.stopImmediatePropagation();
+          shuffle();
+          break;
+      }
+      save();
+    });
+    window.addEventListener('load', e => {
+      let names = JSON.parse(localStorage.getItem('listofnames'));
+      if (!names) {
+        names = ['Allen', 'Betty', 'Chris', 'Debby', 'Edward'];
+        localStorage.setItem('listofnames', JSON.stringify(names));
+      }
+
+      for (let name of names) {
+        let row = document.createElement('tr');
+        row.innerHTML = `<td contenteditable="true">${name}</td>`;
+        table.appendChild(row);
+      }
+    });
+  </script>
+</html>
