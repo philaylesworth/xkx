@@ -1,0 +1,68 @@
+<!doctype html>
+<html manifest="smart.manifest" lang="en">
+<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=600"/>
+	<meta name="apple-mobile-web-app-capable" content="yes"/>
+	<!--meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/-->
+
+	<title>Smarty Points</title>
+
+	<link rel="stylesheet" href="ui/normalize.css"/>
+	<link rel="stylesheet" href="ui/skeleton.css"/>
+	<link rel="stylesheet" href="ui/style.css"/>
+
+	<link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180">
+	<link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16">
+	<link rel="manifest" href="manifest.json">
+	<link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
+	<link rel="shortcut icon" href="favicon.ico">
+	<meta name="msapplication-config" content="browserconfig.xml">
+	<meta name="theme-color" content="#ffffff">
+</head>
+<body>
+	<div id="content">
+		<h1>Smarty Points</h1>
+	
+		<form name="smart" id="smart">
+			<div class="row">
+				<div class="u-full-width" id="points">0</div>
+			</div>
+			<div class="row">
+				<label class="four columns" for="calories">Calories</label>
+				<input class="one-half column" type="number" name="calories" id="calories" tabindex="1"/>
+				<button class="two columns button-primary" type="button" name="clearCalories" id="clearCalories" tabindex="-1">C</button>
+			</div>
+			<div class="row">
+				<label class="four columns" for="fat">Sat Fat</label>
+				<input class="one-half column" type="number" name="fat" id="fat" tabindex="2"/>
+				<button class="two columns button-primary" type="button" name="clearFat" id="clearFat" tabindex="-1">C</button>
+			</div>
+			<div class="row">
+				<label class="four columns" for="sugar">Sugar</label>
+				<input class="one-half column" type="number" name="sugar" id="sugar" tabindex="3"/>
+				<button class="two columns button-primary" type="button" name="clearSugar" id="clearSugar" tabindex="-1">C</button>
+			</div>
+			<div class="row">
+				<label class="four columns" for="protein">Protein</label>
+				<input class="one-half column" type="number" name="protein" id="protein" tabindex="4"/>
+				<button class="two columns button-primary" type="button" name="clearProtein" id="clearProtein" tabindex="-1">C</button>
+			</div>
+			<div class="row">
+				<label class="four columns" for="scale">Scale</label>
+				<input class="one-half column" type="text" name="scale" id="scale" value="1" tabindex="5"/>
+				<button class="two columns button-primary" type="button" name="clearScale" id="clearScale" tabindex="-1">C</button>
+			</div>
+			<div class="row">
+				<button class="u-full-width button-primary" type="reset" id="clear" tabindex="6">Clear</button>
+			</div>
+		</form>
+	</div>
+	
+<script src="ui/jquery.js"></script>
+<script src="ui/jqselect"></script>
+<script src="ui/smarty.js"></script>
+</body>
+</html>	
+		

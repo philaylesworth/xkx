@@ -1,0 +1,98 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  padding-top: 20px;
+  font-size: 10px;
+  color: black;
+  background-color: white;
+}
+
+table {
+  border-collapse: collapse;
+  border: 0;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+}
+
+td {
+  font-size: 1em;
+  text-align: center;
+  vertical-align: middle;
+}
+
+#day,
+#date {
+  height: 1em;
+}
+
+#time {
+  font-weight: bold;
+}
+
+span {
+  display: inline-block;
+}
+
+/* Night styles */
+
+body.night {
+  position: relative;
+  color: black;
+  background-color: black;
+  -webkit-text-stroke: 0.2em gray;
+}
+
+.night #time {
+  font-weight: normal;
+}
+
+#prefs {
+  position: fixed;
+  width: 25%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  padding: 1em;
+  font-size: 3em;
+  background: lightgray;
+  font-weight: normal;
+}
+
+.night #prefs {
+  -webkit-text-stroke: 0 black;
+}
+
+#prefs label {
+  margin-top: 1em;
+  display: block;
+}
+
+#prefs select {
+  /* font-size: 3em; */
+  float: right;
+}
+
+#prefs h3 {
+  margin: 0;
+  padding: 0;
+  margin-top: 0.5em;
+  text-align: center;
+}
+
+.hide {
+  display: none;
+}

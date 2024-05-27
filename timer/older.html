@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="utf-8"/>
+    <title>Timer</title>
+    <style>
+	body {
+		height: 100vh;
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+	section {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		height: 80vh;		
+	}
+	section p {
+		font-family: Helvetica, Arial, sans-serif;
+		font-size: 15vw;
+		text-align: center;
+		letter-spacing: 0.1em;
+	}
+	footer {
+		font-family: Times, serif;
+		font-size: 3vw;
+		height: 3em;
+		position: fixed;
+		bottom: 0;
+		width: 100%;
+		background-color: #DDD;
+	}
+	footer p {
+		padding-top: 1em;
+		text-align: center;
+		margin: 0;
+
+	}
+	footer p > span {
+		padding-left: 2em;
+		padding-right: 2em;
+	}
+	.hide {
+		background-color: transparent;
+	}
+	.hide p {
+		display: none;
+	}
+    .warn {
+        color: rgb(200,0,0);
+    }
+	</style>
+<head>
+</head>
+<body id="main">
+    <section>
+        <p id="timer"></p>
+    </section>
+    <footer>
+        <p>
+            <span>Time: <span id="clock"></span></span>
+            <span id="endtitle">End: <span id="endTime" contenteditable> 18:00</span></span>
+        </p>
+    </footer>
+   
+    <script>
+        "use strict";
+        var end, interval;
+        var endTimeEl = document.getElementById('endTime');
+        var timerEl = document.getElementById('timer');
+        var timeOfDayEl = document.getElementById('clock');
+        var now = new Date();
+
+        /* function for setInterval timer */
+        function tick() {
+            now = new Date();
+            displayClock();
+            displayTimer();
+        }
+        
+        /* display the current time */
+        function displayClock() {
+            var time = now.toTimeString().replace(/:[^:]*$/,'');
+            timeOfDayEl.textContent = time;
+        }
+        
+        /* Set the end time when changed */
+        function setEndTime() {
+            var year, month, d, h, m, n;
+            
+            year = now.getFullYear();
+            month = now.getMonth();
+            d = now.getDate();
+            h = now.getHours()+1;
+            
+            n = endTimeEl.textContent.split(":");
+            h = (isNaN(n[0])) ? h : n[0];
+            m = (isNaN(n[1])) ? 0 : n[1];
+            end = new Date(year, month, d, h, m, 0, 0);
+        
+            window.clearInterval(interval);
+            interval = window.setInterval(tick,1000);
+        }
+        endTimeEl.addEventListener('blur', setEndTime);
+        
+        /* format seconds into hours:min:sec */
+        function formatMinSec(secs) {
+            var h, m, mp, s;
+            h = Math.floor(secs/60/60);
+            secs -= h * 60 * 60;
+            m = Math.floor(secs/60);
+            secs -= m * 60;
+            s = Math.floor(secs);
+            // Don't show seconds until less than 10 minutes
+            if(h>0 || m>9) {
+                // Add a minute if the seconds are not showing - makes the math look right
+                mp = '00' + (s===0 ? m : m+1);
+                mp = mp.slice(-2);
+                return(h + ":" + mp);
+            } else {
+                s = '00' + s;
+                s = s.slice(-2);
+                return(m + ":" + s);
+            }
+        }
+        
+        /* Display the remaining time */
+        function displayTimer() {
+            var left = Math.floor((end.getTime()-now.getTime())/1000);
+            // Add warn class when time reaches 9:59
+            if(left === 599) {
+                timerEl.classList.add('warn');
+            }
+            if (left < 0) {
+                timerEl.textContent = "Done";
+            } else {
+                timerEl.textContent = formatMinSec(left);
+            }
+        }
+        
+        /* Set a default end time onLoad. 
+         * It will be a guess at the time for ending a 2 hour test. */
+        function defaultEndTime() {
+            var h, m;
+            h = now.getHours();
+            m = now.getMinutes();
+            h = m<45 ?  h+1 : h+2 ;
+            now.setHours(h);
+            now.setMinutes(50);
+            endTimeEl.textContent = now.toTimeString().replace(/:[^:]*$/,'');;
+        }
+        
+        /* Event Listener for hiding the footer */
+        var footer = document.querySelector('footer');
+        footer.addEventListener('click', function(){
+          footer.classList.toggle('hide');
+        });
+        
+        /* Event Listener to prevent hiding the footer when the end time is clicked */
+        endTimeEl.addEventListener('click', function(event){
+          event.stopPropagation();
+        });
+        
+        /* Event Listener to set the end time when Enter key is pressed */
+        endTimeEl.addEventListener('keypress', function(event){
+          if(event.keyCode === 13) {
+              event.preventDefault();
+              setEndTime();
+              endTimeEl.blur();
+          }
+        });
+        
+        /* Get things started */
+        defaultEndTime();
+        setEndTime();
+        tick();
+    </script>
+</body>
+</html>

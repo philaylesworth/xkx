@@ -1,0 +1,38 @@
+/* 
+  Display time for locale timezone
+  Phil Aylesworth
+  placed in the public domain
+  2021-01-24
+*/
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+body {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  grid-template-rows: 35vh 50vh;
+}
+
+p {
+  text-align: center;
+  line-height: 1.4;
+}
+
+p#message {
+  font-size: 3vw;
+  align-self: end;
+}
+
+p#date {
+  font-size: 6vw;
+  align-self: start;
+}

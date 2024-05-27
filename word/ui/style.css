@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+input {
+    text-transform: uppercase;
+}
+
+pre {
+    font-family: 'Roboto Mono', monospace;
+    line-height: 1.8;
+}
+
+p span {
+    font-family: 'Roboto Mono', monospace;
+}
+
+.hide {
+    display: none;
+}

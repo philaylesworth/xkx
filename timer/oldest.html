@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="utf-8"/>
+    <title>Timer</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: sans-serif;
+            background-color: black;
+            color: yellow;
+            font-size: 2em;
+        }
+        .warn {
+            background-color: yellow;
+            color: black;
+        }
+        .alert {
+            background-color: red;
+            color: white;
+        }
+        h1 {
+            text-align: center;
+        }
+        section {
+            margin: 20px auto;
+            width: 100%;
+            max-width: 500px;
+        }
+        div {
+            clear: both;
+            margin-top: 20px;
+        }
+        #currentdiv,
+        #enddiv {
+            color: gray;
+        }
+
+        .alert #currentdiv,
+        .alert #enddiv {
+            color: black;
+        }
+        #leftdiv {
+            font-size: 1.5em;
+        }
+        #output {
+            text-align: center;
+            font-size: 5rem;
+        }
+        input {
+            border-width: 0;
+            background-color: inherit;
+            float: right;
+            text-align: right;
+            font-size: inherit;
+            color: inherit;
+            width: 4em;
+        }
+        .show {
+            color: inherit;
+        }
+        .hide {
+            color: transparent;
+        }
+        .hide:hover {
+            color: #333;
+        }
+        [contenteditable]:hover {
+            background-color: #888;
+        }
+        
+    </style>
+<head>
+</head>
+<body id="main">
+    <h1 id="title" contenteditable="true">Timer</h1>
+    <section>
+        <div id="currentdiv">Current Time: <input id="current"/></div>
+        <div id="enddiv" contenteditable="true"><span id="endtitle">End Time:</span><input id="end" value="18:00" onChange="setEnd();"/></div>
+        <div id="leftdiv">Remaining: <input id="left"/></div>
+        <div id="output" contenteditable="true">Time's Up!</div>
+    </section>
+
+    <script>
+        var end= new Date();
+        var interval;
+        function formatTime(h,m,s) {
+            var format = (h) ? h + ":" : '';
+            m = '00'+m;
+            m = m.slice(-2);
+            format += m;
+            if(h<1) {
+                s = '00'+s;
+                s = s.slice(-2);
+                format += ":" + s;
+            }
+            return(format);
+        }
+
+        function formatMinSec(secs) {
+            var m = Math.floor(secs/60);
+            secs -= m * 60;
+            var s = '00' + secs;
+            s = s.slice(-2);
+            return(m + ":" + s);
+        }
+        function setEnd() {
+            var now = new Date();
+            var y = now.getFullYear();
+            var M = now.getMonth();
+            var d = now.getDate();
+            var h = now.getHours()+1;
+            
+            end = document.getElementById('end').value;
+            var n = end.split(":");
+            h = (isNaN(n[0])) ? h : n[0];
+            m = (isNaN(n[1])) ? 0 : n[1];
+            end = new Date(y, M, d, h, m, 0, 0);
+            localStorage.setItem('endField', formatTime(h,m,0));
+            localStorage.setItem('title', document.getElementById('title').innerText); 
+            localStorage.setItem('output', document.getElementById('output').innerText); 
+            localStorage.setItem('endtitle', document.getElementById('endtitle').innerText); 
+        
+            window.clearInterval(interval);
+            interval = window.setInterval(fillTime,1000);
+            document.getElementById("output").className = "hide";
+
+        }
+        function fillClock() {
+            var now = new Date(); // milliseconds
+            var h = now.getHours();
+            var m = now.getMinutes();
+            var s = now.getSeconds();
+            document.getElementById('current').value = formatTime(h,m,s);
+        } 
+
+        function fillTime() {
+            var now = new Date();
+            var left = Math.floor((end.getTime()-now.getTime())/1000);
+            if(left<1) {
+                window.clearInterval(interval);
+                document.getElementById('left').value = formatMinSec(0);
+                document.getElementById("output").className = "show";
+            } else {
+                if(left<300) {
+                    document.getElementById("main").className = "alert";
+                } else if(left<600) {
+                    document.getElementById("main").className = "warn";
+                } else {
+                    document.getElementById("main").className = "";
+                }
+                document.getElementById('left').value = formatMinSec(left);
+            }
+        }
+        fillClock();
+        var endField = localStorage.getItem('endField');
+        if(!!endField)
+            document.getElementById('end').value = endField;
+
+        var title = localStorage.getItem('title');
+        if(!!title)
+            document.getElementById('title').innerText = title;
+
+        var output = localStorage.getItem('output');
+        if(!!output)
+            document.getElementById('output').innerText = output;
+
+        var endtitle = localStorage.getItem('endtitle');
+        if(!!endtitle)
+            document.getElementById('endtitle').innerText = endtitle;
+        setEnd();
+        window.setInterval(fillClock,1000);
+        interval = window.setInterval(fillTime,1000);
+    </script>
+</body>
+</html>

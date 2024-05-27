@@ -1,0 +1,47 @@
+body {
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 80vh;
+}
+
+section p {
+  cursor: default;
+  font-family: Courier, 'Courier New', monospace;
+  font-size: 12vw;
+  text-align: center;
+  letter-spacing: 0.1em;
+}
+
+footer {
+  cursor: default;
+  font-family: Times, serif;
+  font-size: 3vw;
+  height: 3em;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #ddd;
+}
+
+footer p {
+  padding-top: 1em;
+  word-spacing: 0.5em;
+  text-align: center;
+  margin: 0;
+}
+
+.hide {
+  background-color: transparent;
+}
+
+.hide p {
+  display: none;
+}

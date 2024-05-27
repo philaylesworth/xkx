@@ -1,0 +1,51 @@
+html {
+  font-family: sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  --main-bg-color: white;
+  --main-color: black;
+  --main-red: red;
+}
+
+/* Dark Mode for Safari */
+@media (prefers-color-scheme: dark) {
+  html {
+    --main-bg-color: #363636;
+    --main-color: gainsboro;
+    --main-red: #a92f41;
+  }
+}
+
+body {
+  background-color: var(--main-bg-color);
+  color: var(--main-color);
+  margin: 1em;
+  padding: 0;
+}
+
+h1 {
+  text-align: center;
+}
+
+h2 {
+  margin-bottom: 0;
+}
+
+ul {
+  margin-top: 0;
+}
+
+img {
+  float: left;
+  max-width: 50%;
+}
+
+dl {
+  float: left;
+  max-width: 50%;
+}
+
+dt {
+  font-weight: bold;
+}

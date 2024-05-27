@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Wordle Helper</title>
+    <meta name="description" content="Wordle Helper" />
+    <meta name="author" content="Phil Aylesworth" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="//fonts.googleapis.com/css?family=Raleway:400,300,600"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="ui/normalize.css" />
+    <link rel="stylesheet" href="ui/skeleton.css" />
+    <link rel="stylesheet" href="ui/style.css" />
+    <!-- <link rel="icon" type="image/png" href="ui/favicon.png" /> -->
+    <script src="ui/wordledic.js" defer></script>
+    <script src="ui/script.js?ver=1" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div style="margin-top: 10%">
+          <h4>Wordle Helper</h4>
+          <p>
+            Enter the known values and this will show you a list of possible
+            solutions.
+          </p>
+          <form id="clueform" action="">
+            <div class="row">
+              <div class="four columns">
+                <label for="exampleEmailInput"
+                  >Correct Letter, Correct Location:</label
+                >
+              </div>
+              <div class="five columns">
+                <input id="location1" size="2" maxlength="1" />
+                <input id="location2" size="2" maxlength="1" />
+                <input id="location3" size="2" maxlength="1" />
+                <input id="location4" size="2" maxlength="1" />
+                <input id="location5" size="2" maxlength="1" />
+              </div>
+            </div>
+            <div class="row">
+              <div class="four columns">
+                <label for="exampleEmailInput"
+                  >Correct Letter, Wrong Location:</label
+                >
+              </div>
+              <div class="five columns">
+                <input id="letter1" size="2" />
+                <input id="letter2" size="2" />
+                <input id="letter3" size="2" />
+                <input id="letter4" size="2" />
+                <input id="letter5" size="2" />
+              </div>
+            </div>
+            <div class="row">
+              <div class="four columns">
+                <label for="exampleEmailInput">Wrong Letters:</label>
+              </div>
+              <div class="six columns">
+                <input name="wrong" id="wrong" />
+              </div>
+            </div>
+            <div class="row">
+              <input type="reset" value="Clear" />
+              <input
+                class="button-primary"
+                type="submit"
+                value="Show Clues"
+                id="showclues"
+              />
+            </div>
+          </form>
+          <p><b></b> Try to eliminate some of these letters: <span></span></p>
+          <pre id="clues" class="six columns"></pre>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

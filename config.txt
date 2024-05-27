@@ -1,0 +1,23 @@
+Robinson  167.114.169.237  VPS 2014 Classic 1
+
+QC  192.99.42.167  vps50064  VPS 2014 Classic 1
+    quiltingconfections.com  192.99.42.167
+
+XKX  158.69.203.218  vps59895  VPS 2016 SSD 1 (CentOS 7.1)
+    aylesworth.ca
+    m.xkx.ca
+    xkx.ca
+    qrfind.ca
+
+Let's Encrypt! on CentOS OVH
+
+yum install git epel-release ssl-mod
+git clone https://github.com/letsencrypt/letsencrypt
+cd letsencrypt
+./letsencrypt-auto  # Failed. Not available for this platform yet
+# stop server and run this. Must run ever three months.
+./letsencrypt-auto certonly
+  -> xkx.ca,aylesworth.ca,qrfind.ca,www.xkx.ca,www.aylesworth.ca,www.qrfind.ca
+
+Renew: 
+letsencrypt-auto certonly --webroot -w /home/xkx/public_html/ -d xkx.ca -d www.xkx.ca -w /home/aylesworth/public_html -d aylesworth.ca -d www.aylesworth.ca -w /home/qrfind/public_html/ -d qrfind.ca -d www.qrfind.ca

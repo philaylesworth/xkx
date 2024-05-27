@@ -1,0 +1,18 @@
+{
+  "remotePath": "./public_html/mine/",
+  "host": "xkx.ca",
+  "username": "xkx",
+  "protocol": "sftp",
+  "port": 22,
+  "uploadOnSave": true,
+  "debug": false,
+  "privateKeyPath": "/Users/phil/.ssh/id_rsa",
+  "passphrase": null,
+  "agent": null,
+  "allow": [],
+  "ignore": ["\\.vscode", "\\.git", "\\.DS_Store"],
+  "generatedFiles": {
+    "extensionsToInclude": [""],
+    "path": ""
+  }
+}

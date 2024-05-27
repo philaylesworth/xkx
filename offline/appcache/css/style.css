@@ -1,0 +1,28 @@
+html {
+	background: url(../images/w.png) no-repeat 20px 20px/200px;
+}
+
+h4 {
+	margin: 3em 0 4em 70px;
+	text-align: center;
+}
+
+@media (max-width: 800px) {
+	html {
+		background: no-repeat;
+	}
+	
+	h4 {
+		margin: 1em 0;
+	}
+	
+}
+
+div.five h4 {
+	margin: 1em 0 1em 0;
+	text-align: left;
+}
+
+div.three {
+	 text-align: center;
+}

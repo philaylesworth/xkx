@@ -1,2 +1,3 @@
 # xkx
-xkx.ca website
+
+Content for [xkx.ca](xkx.ca).

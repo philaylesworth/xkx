@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Canadian Mortgage Calculator</title>
+	<meta name="description" content="Calculator for Canadian Mortgages">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="ui/normalize.css">
+	<link rel="stylesheet" href="ui/main.css">
+	<script src="ui/vendor/modernizr-2.6.2.min.js"></script>
+</head>
+<body>
+	<!--[if lt IE 9]>
+	<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+	<![endif]-->
+
+	<!-- Add your site or application content here -->
+	<h1>Canadian Mortgage Calculator</h1>
+	<p>Enter three of the first four values. Click the button next to the one you want to calculate.<br/>
+	<a href="https://www.libro.ca/Rates/ResidentialRates.aspx?p=1">Check Libro Credit Union for mortgage rates.</a></p>
+	<form action="#" method="post">
+		<fieldset>
+			<div>
+				<label for="i" class="cell">Interest %</label>
+				<div class="cell">
+					<input type="number" name="i" id="i" min="0" step="0.05">
+				</div>
+				<div class="cell button">
+					<button type="button" id="calcI" title="Value is approximate. After clicking this, click one of the other buttons to get exact values.">Approx</button>
+				</div>
+			</div>
+			<div>
+				<label for="P" class="cell">Starting Principle</label>
+				<div class="cell">
+					<input type="number" name="P" id="P" min="0" step="1000">
+				</div>
+				<div class="cell button">
+					<button type="button" id="calcP">Calc</button>
+				</div>
+			</div>
+			<div>
+				<label for="ny" class="cell">Amortization (yrs)</label>
+				<div class="cell">
+					<input type="number" name="ny" id="ny" min="0"><span>&nbsp;yrs&nbsp;</span><input type="number" name="nm" id="nm" value="0" min="0"><span>&nbsp;mo</span>
+				</div>
+				<div class="cell button">
+					<button type="button" id="calcN">Calc</button>
+				</div>
+			</div>
+			<div>
+				<label for="m" class="cell">Monthly Payment</label>
+				<div class="cell">
+					<input type="number" name="m" id="m" min="0" step="10">
+				</div>
+				<div class="cell button">
+					<button type="button" id="calcM">Calc</button>
+				</div>
+			</div>
+			<div>
+				<label for="t" class="cell">Term (yrs, optional)</label>
+				<div class="cell">
+					<input type="number" name="t" id="t" min="0" title="Leave this blank to show the full ammortization table.">
+				</div>
+			</div>
+			<div>
+				<label for="b" class="cell">Balance</label>
+				<div class="cell">
+					<input type="text" name="b" id="b" disabled title="This is the amount left owning at the end of the term.">
+				</div>
+			</div>
+		</fieldset>
+	</form>
+	<div id="amortize">
+	</div>
+
+	<p>For informational purposes only. Check with your bank before committing to anything.</p>
+
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="ui/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+	<script src="ui/plugins.js"></script>
+	<script src="ui/main.js"></script>
+</body>
+</html>

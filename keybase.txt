@@ -1,0 +1,87 @@
+==================================================================
+https://keybase.io/paylesworth
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://xkx.ca
+  * I am paylesworth (https://keybase.io/paylesworth) on keybase.
+  * I have a public key with fingerprint 9023 8926 9444 4B80 F42E  022D 431A 33C4 FCA6 D50C
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "010196af3bb085ed9d07f1f309daa27c424ed1df22d92f157079e793dc297d613dcf0a",
+      "fingerprint": "9023892694444b80f42e022d431a33c4fca6d50c",
+      "host": "keybase.io",
+      "key_id": "431a33c4fca6d50c",
+      "kid": "010196af3bb085ed9d07f1f309daa27c424ed1df22d92f157079e793dc297d613dcf0a",
+      "uid": "a978014f6601e1b0b22a64afbe3c3500",
+      "username": "paylesworth"
+    },
+    "merkle_root": {
+      "ctime": 1643398181,
+      "hash_meta": "2e3bd8586956d5027ea1e762d1447609d237f878a68c7b9e2e39793baeba7491",
+      "seqno": 21746079
+    },
+    "revoke": {
+      "sig_ids": [
+        "8493f2a4ceeb90008dd08eebeb3a8d40a7464c291430aa5cf6881d3d5b781f560f"
+      ]
+    },
+    "service": {
+      "hostname": "xkx.ca",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "ctime": 1643398193,
+  "expire_in": 157680000,
+  "prev": "56ef200ee702ae2f5f1bc12da1c2b700f3eccd88d2ab0a4c562bc71d7e776a68",
+  "seqno": 18,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.1.13
+Comment: https://keybase.io/crypto
+
+yMPRAnicrZN9bBRFGMbvKhQKNoptxYAWXK0I1jKzX7N7ILaUtkCgJhIJUfSY3Znt
+LXe9PXa3V45yYEBTtRI/kEJIaakNJTQaRNLKh9oPavmK5SMa0RRFhSIUoqmCiVJw
+tsGYGP90/9mZyfM+7/P+dqc7/Q7fGH/hBKH7RvOXd/qPd7kVPvzbHFjFaRZJcIEq
+LkyHXzRCqOMGwybhAhyAAKoyNgRNA4pEiUoAMqAhAJVgzCNd5EVKIDF4nqi8ASUE
+kEqRKhCdVxGRIVsYAHO5nGFGy6gds82oy2xVwAuKysuqyB5NAYbIU8A8RAFiQdBF
+Q8cykYDOCkOW41WwcBp2aJ5psTO2CQ7H+w/9/5y7YtgOq0gBUDRkGUAKNaDxPJZF
+bGhU0AUJAE/oUDuKyylTx3AiQp1Ky3ZDXDKXK6d2OEKDtmW5Hl/dNT0VlEVBUBWo
+QDYjdkLBcupiVsxTQSOKpMiq5I3EI4ohRTJPoCgimeXnBWQoSMGyoiNNpUyvsuAa
+phpGogpZFIeuiFpcgIdIlNlcLIJN41aYet0ds4yhc7jAc5wiqoLBY1GnVFMBAAoh
+QGFrqglYISJgdrLIeEBRABhLuiErCiQCkTSkQEOSgcE9n/S62XFTHzb3vtVtBivD
+K/N0D2DMtlxLtyLsLOS6MSfgIXETMU9USbXg7fKgZkYJ+0dYRZzajmlFGSKm/Bct
+Vcjl6MqYadOg6SkkJCssOvD60DizlGRq8ABQigCPKW9IBtR0yBMMdV5DABgC1XWi
+KITHGmCzSzKv6QgSRBGSGdN/8EGF5cRlzJMxi2K3wqZcsqtz6Qiff4wvdWSKd3l8
+Y9Lu/vtKteXcdasi0FZFPh93ePDA7sq1ycxTO9yIcbUwQy052Zt3T+nsofU/jL1Z
+lNpYfyg8Lluc2dmUXRvP3nGqtbT5YKYtJDrPdeeDTa+/HVGs+oLLHxfn1dx4NTuf
+nsupba453DfUPfqrjD3tp7/unX/+rZezJj7yY2112dXBWH9K0aMbljb0H2h6bcqQ
+eZkkR/YKf/yyG13vv29vdN35vNKmT6/d+D0zrf1iz0MHBtC5kqND27eH3AW3tIw/
+Z2UNbn5z+ewTVwLVjVtLhJlbIovaX1pT7uwyZqDLN5WabUUlRfdPKsuYXjQrq93X
+U7fMIYkr15LjOsYuXHXkRMsDlevXfpIqfqN++8yueQ+XtMSLDyVa8XHwvb5q0eQZ
+PZcSja1jC7vSdibOPp5pltXvnzJ/cNqHJ5ekhBb3Rk+82FsycGRfNZm5MFY/MV1K
+dy61NE/v27hCLNgf27C5Z0XoYOfAmpMdqRM63m1M21i8R27Y++S6z5J+Z0du5vX2
+e0tf2ZAf33WUbqr3n27Ir5p0qSEnsL/2qS/2+W6dHRiVNnK5dEGf1tHie//Z1YN9
+T8Tmr6qbuKDTz7W9kL9+/Ny9WVmxzJQzi489XTxhzgcFbcfOVP+at2dZ/+oRW8Ib
+57Ren9r14MWP6raWHp/mzvY3j54ciC25MKpt53fTs9qnJguLC9LfQO+Bbf53juLq
+7OKO8U0/zZt76ufH2vr+AlkP+wc=
+=6jWk
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/paylesworth
+
+==================================================================

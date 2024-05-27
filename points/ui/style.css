@@ -1,0 +1,43 @@
+body {
+	margin: 10px;
+}
+
+#content {
+	max-width: 600px;
+	margin: 0 auto;
+}
+
+button {
+	text-align: center;
+	font-size: 2em;
+	height: 3em;
+	padding: 0;
+}
+
+#content input {
+	font-size: 4em;
+	text-align: right;
+	height: 1.5em;
+}
+
+h1 {
+	text-align: center;
+}
+
+label {
+	text-align: right;
+	font-size: 2em;
+	margin-top: 0.5em;
+}
+
+#content #points {
+	font-size: 10em;
+	font-weight: bold;
+	text-align: center;
+	background-color: hsl(200,50%,90%);
+	border: 0;
+	margin: 0;
+	padding: 0;
+	margin-bottom: 10px;
+	height: 1.5em;
+}

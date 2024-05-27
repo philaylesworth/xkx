@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clock</title>
+    <link href="style.css" rel="stylesheet" />
+    <script src="ui/suncalc/suncalc.js" defer></script>
+    <script src="script.js" defer></script>
+    <meta name="viewport" content="initial-scale = 1, user-scalable = no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+  </head>
+
+  <body class="night">
+    <table>
+      <tbody>
+        <tr>
+          <td id="day"><span>Sunday</span></td>
+        </tr>
+        <tr>
+          <td id="time"><span>0:00</span></td>
+        </tr>
+        <tr>
+          <td id="date"><span>January 1</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <div id="prefs" class="hide">
+      <h3>Preferences</h3>
+      <form action="#">
+        <label>
+          Rounding:
+          <select name="time" id="timeprefs">
+            <option value="0">None</option>
+            <option value="1">1 min</option>
+            <option value="5">5 min</option>
+            <option value="10">10 min</option>
+            <option value="15">15 min</option>
+          </select>
+        </label>
+        <label>
+          Date:
+          <select name="date" id="dateprefs">
+            <option value="show">Show</option>
+            <option value="hide">Hide</option>
+          </select>
+        </label>
+        <label>
+          Screen:
+          <select name="screen" id="screenprefs">
+            <option value="auto">Auto</option>
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+          </select>
+        </label>
+      </form>
+    </div>
+  </body>
+</html>

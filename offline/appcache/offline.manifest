@@ -1,0 +1,17 @@
+CACHE MANIFEST
+# Version 11
+
+CACHE:
+script/mediawiki.js
+script/script.js
+css/normalize.css
+css/skeleton.css
+css/style.css
+images/w.png
+//fonts.googleapis.com/css?family=Raleway:400,300,600
+
+NETWORK:
+*
+
+FALLBACK:
+/ offline.html

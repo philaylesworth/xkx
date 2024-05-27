@@ -1,0 +1,44 @@
+html {
+  height: 100vh;
+}
+
+body {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 33% 34% 33%;
+  grid-template-rows: 50% 50%;
+  align-content: center;
+  justify-content: center;
+  margin: 0;
+  font-size: 8vh;
+  font-family: sans-serif;
+  line-height: 1.5em;
+}
+
+div {
+  text-align: center;
+  border: 1px solid gray;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+div#title {
+  background-color: lightgray;
+}
+div#start {
+  background-color: lightgray;
+}
+div#sandbox {
+  background-color: lightgray;
+}
+div#mute {
+  background-color: pink;
+}
+div#other {
+  background-color: aqua;
+}
+div#teams {
+  background-color: aqua;
+}
