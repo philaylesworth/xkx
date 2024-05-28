@@ -33,16 +33,17 @@
       }
       p {
         margin: 5px;
+        text-align: right;
       }
       button {
         font: 1em sans-serif;
-        float: right;
       }
-      td button {
+      td button,
+      button.plus {
         font: 0.5em sans-serif;
       }
       button.shuffle {
-        float: left;
+        width: 100%;
       }
       .hidden {
         display: hidden;
@@ -55,6 +56,8 @@
     </table>
     <p>
       <button class="plus">&nbsp;+&nbsp;</button>
+    </p>
+    <p>
       <button class="shuffle">Shuffle</button>
     </p>
   </body>
