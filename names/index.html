@@ -7,9 +7,11 @@
     <style>
       html {
         width: 100%;
+        margin: 0;
+        font: 1rem sans-serif;
       }
       body {
-        margin: 5px 0;
+        margin: 0;
         font: 3em sans-serif;
         margin: 10px;
       }
@@ -18,15 +20,32 @@
         border-collapse: collapse;
       }
       td {
-        border: 1px solid black;
-        text-align: center;
+        border: none;
         padding: 4px;
+      }
+      td:first-child {
+        width: 80%;
+        text-align: left;
+      }
+      td:last-child {
+        width: 20%;
+        text-align: right;
+      }
+      p {
+        margin: 5px;
       }
       button {
         font: 1em sans-serif;
-      }
-      button:first-of-type {
         float: right;
+      }
+      td button {
+        font: 0.5em sans-serif;
+      }
+      button.shuffle {
+        float: left;
+      }
+      .hidden {
+        display: hidden;
       }
     </style>
   </head>
@@ -34,18 +53,23 @@
     <table>
       <tbody></tbody>
     </table>
+    <!-- <p>
+      <button class="plus">&nbsp;+&nbsp;</button>
+      <button class="minus">&nbsp;-&nbsp;</button>
+    </p> -->
     <p>
-      <button id="shuffle">Shuffle</button>
-      <button id="plus">&nbsp;+&nbsp;</button>
-      <button id="minus">&nbsp;-&nbsp;</button>
+      <button class="plus">&nbsp;+&nbsp;</button>
+      <button class="shuffle">Shuffle</button>
     </p>
   </body>
   <script>
     let table = document.querySelector('tbody');
-    let clear = document.querySelector('button#clear');
-    let shuffleButton = document.querySelector('button#shuffle');
-    let plusButton = document.querySelector('button#plus');
-    let minusButton = document.querySelector('button#minus');
+    let clear = document.querySelector('button.clear');
+    let shuffleButton = document.querySelector('button.shuffle');
+    let plusButton = document.querySelector('button.plus');
+    // let minusButton = document.querySelector('button#minus');
+    let newRow = `<td class="person" contenteditable="true"></td><td><button>&nbsp;-&nbsp;</button></td`;
+
     function shuffle() {
       let cells = document.querySelectorAll('tbody tr');
       let order = [];
@@ -63,27 +87,27 @@
       let names = [];
       let cells = document.querySelectorAll('tbody tr');
       for (let cell of cells) {
-        names.push(cell.textContent.trim());
+        names.push(cell.firstElementChild.textContent.trim());
       }
       localStorage.setItem('listofnames', JSON.stringify(names));
     }
-    function plus() {
+    function plus(event) {
       let row = document.createElement('tr');
-      row.innerHTML = `<td contenteditable="true"></td>`;
+      row.innerHTML = newRow;
       table.appendChild(row);
+      row.firstElementChild.focus();
+      save();
     }
-    function minus(e) {
-      if (e.target.tagName === 'TD') {
-        e.target.parentElement.remove();
-      } else {
-        let last = table.lastElementChild;
-        last.remove();
+    function minus(event) {
+      let target = event.target;
+      if (event.target.tagName === 'BUTTON') {
+        event.target.parentElement.parentElement.remove();
       }
       save();
     }
     shuffleButton.addEventListener('click', shuffle);
+    table.addEventListener('click', minus);
     plusButton.addEventListener('click', plus);
-    minusButton.addEventListener('click', minus);
     window.addEventListener('keydown', e => {
       switch (e.key) {
         case '+':
@@ -108,14 +132,15 @@
     window.addEventListener('load', e => {
       let names = JSON.parse(localStorage.getItem('listofnames'));
       if (!names) {
-        names = ['Allen', 'Betty', 'Chris', 'Debby', 'Edward'];
+        names = ['Eh 👑', 'Bee', 'Sea', 'Dee'];
         localStorage.setItem('listofnames', JSON.stringify(names));
       }
 
-      for (let name of names) {
+      for (let person of names) {
         let row = document.createElement('tr');
-        row.innerHTML = `<td contenteditable="true">${name}</td>`;
+        row.innerHTML = newRow;
         table.appendChild(row);
+        row.firstElementChild.textContent = person;
       }
     });
   </script>
